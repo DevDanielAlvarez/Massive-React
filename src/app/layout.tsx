@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+import SidebarComponent from "@/components/Sidebar/SidebarComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+    <main className="grid grid-cols-12">
+        <SidebarComponent/>
+      <div className="col-span-8 col-start-3">
+
         {children}
+
+      </div>
+    </main>
+
       </body>
     </html>
   );
