@@ -30,14 +30,14 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
 
-    <main className="grid grid-cols-12">
-        <SidebarComponent/>
-      <div className="col-span-8 col-start-3">
+        <main className="flex">
+          <SidebarComponent /> {/*uses just 1 grid column */}
+          <div className="flex-grow pt-8">
 
-        {children}
+            {children}
 
-      </div>
-    </main>
+          </div>
+        </main>
 
       </body>
     </html>

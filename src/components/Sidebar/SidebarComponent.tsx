@@ -4,13 +4,17 @@ import React, { useState } from 'react';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { ArrowForwardIosOutlined } from '@mui/icons-material';
 import { ArrowBackIosOutlined } from '@mui/icons-material';
+import { Routes } from '@/routes/Routes';
+import { useRouter } from 'next/navigation';
 export default function SidebarComponent() {
 
     const [collapsed, setCollapsed] = useState(false);
 
-    const handleCollapse = ()=> {
+    const router = useRouter();
+
+    const handleCollapse = () => {
         //if true
-        if(collapsed == true){
+        if (collapsed == true) {
             setCollapsed(false);
             return;
         }
@@ -20,18 +24,21 @@ export default function SidebarComponent() {
     }
 
     return (
-        <Sidebar collapsed={collapsed} className='h-screen col-span-2'>
-            <Button onClick={(event) => {handleCollapse()}}>{collapsed == true ? <ArrowForwardIosOutlined/> : <ArrowBackIosOutlined/> }</Button>
-            <Menu>
-                
-                <SubMenu label="Use State">
-                    <MenuItem> Todo App </MenuItem>
-                    <MenuItem> Line charts </MenuItem>
-                </SubMenu>
-                <MenuItem> Documentation </MenuItem>
-                <MenuItem> Calendar </MenuItem>
-            </Menu>
-        </Sidebar>
+
+            <Sidebar collapsed={collapsed} className='h-screen col-span-1'>
+                <Button onClick={(event) => { handleCollapse() }}>{collapsed == true ? <ArrowForwardIosOutlined /> : <ArrowBackIosOutlined />}</Button>
+                <Menu>
+
+                    <SubMenu label="Use State">
+                        <MenuItem onClick={() => router.push(Routes.TODO_APP)}> Todo App </MenuItem>
+                        <MenuItem onClick={() => router.push(Routes.USERS)}> Users </MenuItem>
+                    </SubMenu>
+                    <MenuItem> Documentation </MenuItem>
+                    <MenuItem> Calendar </MenuItem>
+                </Menu>
+            </Sidebar>
+
+
     );
 
 }
