@@ -24,6 +24,7 @@ export default function ListUsers({ users }: { users: User[] }) {
           return (
             <TableRow
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              key={user.id}
             >
               <TableCell >{user.id}</TableCell>
               <TableCell >{user.name}</TableCell>
