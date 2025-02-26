@@ -36,6 +36,7 @@ export default function SidebarComponent() {
 
         <SubMenu label="Use Effect">
           <MenuItem onClick={() => router.push(Routes.COUNTER)}> Counter </MenuItem>
+          <MenuItem onClick={() => router.push(Routes.USERS_API)}> Users api </MenuItem>
         </SubMenu>
       </Menu>
     </Sidebar>
